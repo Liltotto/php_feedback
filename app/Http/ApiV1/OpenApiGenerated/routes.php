@@ -5,7 +5,8 @@
  * Do NOT edit it manually. Run `php artisan openapi:generate-server`.
  */
 
-use App\Http\ApiV1\Modules\Foos\Controllers\FeedbacksController;
+use App\Http\ApiV1\Modules\Feedbacks\Controllers\FeedbacksController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('examples/{id}', [FeedbacksController::class, 'get'])->name('getExample');
+Route::post('feedbacks/feedbacks', [FeedbacksController::class, 'create']);
+Route::get('feedbacks/feedbacks/{id}', [FeedbacksController::class, 'get']);

@@ -1,18 +1,5 @@
 <?php
 
-//use App\Http\ApiV1\Support\Tests\ApiV1ComponentTestCase;
-//
-//use function Pest\Laravel\getJson;
-//
-//uses(ApiV1ComponentTestCase::class);
-//uses()->group('component');
-//
-//test('GET /api/v1/feedbacks/{id} 404', function () {
-//    getJson('/api/v1/feedbacks/1')
-//        ->assertStatus(404);
-//});
-
-
 use App\Domain\Feedbacks\Models\Feedbacks;
 use App\Http\ApiV1\Support\Tests\ApiV1ComponentTestCase;
 
@@ -26,7 +13,7 @@ uses()->group('component');
 test('POST /api/v1/feedbacks/feedbacks create success', function () {
     $request = [
         'name' => 'Test name',
-        'body' => 'test news body',
+        'body' => 'test feedbacks body',
     ];
 
     postJson('/api/v1/feedbacks/feedbacks', $request)
