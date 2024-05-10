@@ -1,0 +1,59 @@
+Feedbacks:
+  type: object
+  properties:
+    id:
+      type: integer
+      description: id of feedback
+      example: 1123
+    name:
+      type: string
+      description: User name
+      example: "Ivan"
+    body:
+      type: string
+      description: feedback text
+      example: "good service, i am pleased"
+    updated_at:
+      description: "Дата обновления"
+      format: date-time
+      type: string
+      example: "2024-01-01T11:57:28.000000Z"
+    created_at:
+      description: "Дата обновления"
+      format: date-time
+      type: string
+      example: "2024-01-01T11:57:28.000000Z"
+  required:
+    - id
+    - name
+    - body
+    - updated_at
+    - created_at
+
+FeedbacksResponse:
+  type: object
+  properties:
+    data:
+      $ref: '#/Feedbacks'
+    meta:
+      type: object
+  required:
+    - data
+
+CreateFeedbacksRequest:
+  type: object
+  properties:
+    body:
+      type: string
+      description: feedback text
+      example: "good service, i am pleased"
+    name:
+      type: string
+      description: User name
+      example: "Ivan"
+
+
+
+  required:
+    - name
+    - body

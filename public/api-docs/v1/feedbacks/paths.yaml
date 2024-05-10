@@ -1,0 +1,48 @@
+FeedbacksOne:
+  get:
+    tags:
+      - feedbacks
+    operationId: getFeedbacks
+    x-lg-handler: 'App\Http\ApiV1\Modules\Feedbacks\Controllers\FeedbacksController@get'
+    x-lg-skip-request-generation: true
+    summary: Получение объекта типа Feedbacks
+    description: Получение объекта типа Feedbacks
+    parameters:
+      - $ref: '../index.yaml#/components/parameters/PathId'
+    responses:
+      "200":
+        description: Успешный ответ
+        content:
+          application/json:
+            schema:
+              $ref: './schemas/feedbacks.yaml#/FeedbacksResponse'
+      "404":
+        $ref: '../index.yaml#/components/responses/NotFound'
+      "500":
+        $ref: '../index.yaml#/components/responses/ServerError'
+
+Feedbacks:
+  post:
+    tags:
+      - feedbacks
+    operationId: createFeedbacks
+    summary: Запрос на создание feedback
+    description: Запрос на создание feedback
+    x-lg-handler: 'App\Http\ApiV1\Modules\Feedbacks\Controllers\FeedbacksController@create'
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: './schemas/feedbacks.yaml#/CreateFeedbacksRequest'
+    responses:
+      "201":
+        description: Выполнено успешно
+        content:
+          application/json:
+            schema:
+              $ref: './schemas/feedbacks.yaml#/FeedbacksResponse'
+      "400":
+        $ref: '../index.yaml#/components/responses/BadRequest'
+      "500":
+        $ref: '../index.yaml#/components/responses/ServerError'
